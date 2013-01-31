@@ -1,7 +1,15 @@
 package models;
 
-public class Empleado {
+/**
+ * Employee model, default constructor.
+ * @author ArnauAregall
+ *
+ */
+public class Employee {
 	
+	/**
+	 * Private class attributes
+	 */
 	private int _id;
 	private String _nombre;
 	private String _cargo;
@@ -9,6 +17,10 @@ public class Empleado {
 	private String _telf;
 	private String _email;
 	
+	/**
+	 * Getters and setters for private class attributes.
+	 * @return
+	 */
 	public int getId() {
 		return _id;
 	}

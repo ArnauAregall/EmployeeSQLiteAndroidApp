@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lasallegraciadam2.aaregall.R;
 
-import controllers.EmpleadoDataSource;
+import controllers.EmployeeDataSource;
 
 
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.app.Activity;
 
+/**
+ * MainActivity, first activity that will be shown. 
+ * Connects to the SQLite database and retreives a list of employee's names into a ListView
+ * @author ArnauAregall
+ *
+ */
 public class MainActivity extends Activity {
 
 	@Override
@@ -19,12 +25,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		EmpleadoDataSource empleadoDS = new EmpleadoDataSource(this);
-		empleadoDS.open();
-		List<String> empleadosNames = empleadoDS.getEmpleadosNames();
+		EmployeeDataSource empleadoDS = new EmployeeDataSource(this);
+		empleadoDS.open(false); // open connection
+		List<String> empleadosNames = empleadoDS.getEmployeesNames();
 		ListView lv = (ListView) findViewById(R.id.lvEmpleados);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, empleadosNames);
 		lv.setAdapter(adapter);
-		empleadoDS.close();
+		empleadoDS.close(); // close DB connection
 	}
 }
