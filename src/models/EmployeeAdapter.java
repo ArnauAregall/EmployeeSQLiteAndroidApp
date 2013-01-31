@@ -1,13 +1,15 @@
 package models;
 
 import java.util.List;
-import com.lasallegraciadam2.aaregall.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import com.lasallegraciadam2.aaregall.R;
 
 /**
  * EmployeeAdapter class, custom adapter for the Employee List View 
@@ -78,7 +80,14 @@ public class EmployeeAdapter extends BaseAdapter {
 		} else {
 			customView = convertView;
 		}
-		 //TODO customize view
+		
+		TextView tvName = (TextView) customView.findViewById(R.id.tv_name);
+		TextView tvEmail = (TextView) customView.findViewById(R.id.tv_email);
+		TextView tvPhone = (TextView) customView.findViewById(R.id.tv_phone);
+		
+		tvName.setText(_employees.get(location).getName() + " (" +_employees.get(location).getCharge() + ")");
+		tvEmail.setText(_employees.get(location).getEmail());
+		tvPhone.setText(_employees.get(location).getPhone());
 		
 		return customView;
 	}

@@ -57,10 +57,10 @@ public class EmployeeDataSource {
 		long inserted = -1; // token 
 		if (!employeeExists(employee)) {
 			ContentValues values = new ContentValues();
-			values.put(columns[1], employee.getNombre());
-			values.put(columns[2], employee.getCargo());
-			values.put(columns[3], employee.getDepartamento());
-			values.put(columns[4], employee.getTelf());
+			values.put(columns[1], employee.getName());
+			values.put(columns[2], employee.getCharge());
+			values.put(columns[3], employee.getDepartament());
+			values.put(columns[4], employee.getPhone());
 			values.put(columns[5], employee.getEmail());
 			inserted = db.insert(dbHelper.TABLENAME, null, values);
 		}
@@ -107,10 +107,10 @@ public class EmployeeDataSource {
 		while(!cur.isAfterLast()) { // while not end of data stored in table...
 			Employee emp = new Employee();
 			emp.setId(cur.getInt(0));
-			emp.setNombre(cur.getString(1));
-			emp.setCargo(cur.getString(2));
-			emp.setDepartamento(cur.getString(3));
-			emp.setTelf(cur.getString(4));
+			emp.setName(cur.getString(1));
+			emp.setCharge(cur.getString(2));
+			emp.setDepartament(cur.getString(3));
+			emp.setPhone(cur.getString(4));
 			emp.setEmail(cur.getString(5));
 			employees.add(emp);
 			cur.moveToNext(); // next loop

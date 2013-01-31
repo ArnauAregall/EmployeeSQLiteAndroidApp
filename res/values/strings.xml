@@ -3,5 +3,9 @@
 
     <string name="app_name">MP08_UF2_NF1.2_04</string>
     <string name="hello_world">Hello world!</string>
+    <string name="employee_icon_alt">Employee Icon</string>
+    <string name="name">Name and Charge</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Phone Number</string>
 
 </resources>

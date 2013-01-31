@@ -11,10 +11,10 @@ public class Employee {
 	 * Private class attributes
 	 */
 	private int _id;
-	private String _nombre;
-	private String _cargo;
-	private String _departamento;
-	private String _telf;
+	private String _name;
+	private String _charge;
+	private String _department;
+	private String _phone;
 	private String _email;
 	
 	/**
@@ -29,36 +29,36 @@ public class Employee {
 		this._id = id;
 	}
 	
-	public String getNombre() {
-		return _nombre;
+	public String getName() {
+		return _name;
 	}
 	
-	public void setNombre(String nombre) {
-		this._nombre = nombre;
+	public void setName(String name) {
+		this._name = name;
 	}
 	
-	public String getCargo() {
-		return _cargo;
+	public String getCharge() {
+		return _charge;
 	}
 	
-	public void setCargo(String cargo) {
-		this._cargo = cargo;
+	public void setCharge(String charge) {
+		this._charge = charge;
 	}
 	
-	public String getDepartamento() {
-		return _departamento;
+	public String getDepartament() {
+		return _department;
 	}
 	
-	public void setDepartamento(String departamento) {
-		this._departamento = departamento;
+	public void setDepartament(String department) {
+		this._department = department;
 	}
 	
-	public String getTelf() {
-		return _telf;
+	public String getPhone() {
+		return _phone;
 	}
 	
-	public void setTelf(String telf) {
-		this._telf = telf;
+	public void setPhone(String phone) {
+		this._phone = phone;
 	}
 	
 	public String getEmail() {

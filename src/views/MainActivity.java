@@ -2,35 +2,33 @@ package views;
 
 import java.util.List;
 
-import com.lasallegraciadam2.aaregall.R;
+import models.Employee;
+import models.EmployeeAdapter;
 
 import controllers.EmployeeDataSource;
 
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.app.Activity;
+import android.app.ListActivity;
 
 /**
  * MainActivity, first activity that will be shown. 
- * Connects to the SQLite database and retreives a list of employee's names into a ListView
+ * Connects to the SQLite database and retrieves a list of employee into a ListView with custom views.
  * @author ArnauAregall
  *
  */
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 
+	EmployeeAdapter adapter = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		
-		EmployeeDataSource empleadoDS = new EmployeeDataSource(this);
-		empleadoDS.open(false); // open connection
-		List<String> empleadosNames = empleadoDS.getEmployeesNames();
-		ListView lv = (ListView) findViewById(R.id.lvEmpleados);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, empleadosNames);
-		lv.setAdapter(adapter);
-		empleadoDS.close(); // close DB connection
+		EmployeeDataSource employeeDS = new EmployeeDataSource(this);
+		employeeDS.open(false); // open DB connection
+		List<Employee> employees = employeeDS.getEmployees(); // retrieve data from DB
+		adapter = new EmployeeAdapter(this, employees);
+		this.setListAdapter(adapter);
+		employeeDS.close(); // close DB connection
 	}
 }
