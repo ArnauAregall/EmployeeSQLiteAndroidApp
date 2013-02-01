@@ -16,23 +16,48 @@ public final class R {
         public static final int imageborder=0x7f020002;
     }
     public static final class id {
-        public static final int img_rest=0x7f060001;
+        public static final int detail_charge=0x7f060007;
+        public static final int detail_department=0x7f060009;
+        public static final int detail_email=0x7f06000b;
+        public static final int detail_id=0x7f060003;
+        public static final int detail_img_rest=0x7f060001;
+        public static final int detail_label_charge=0x7f060006;
+        public static final int detail_label_department=0x7f060008;
+        public static final int detail_label_email=0x7f06000a;
+        public static final int detail_label_id=0x7f060002;
+        public static final int detail_label_name=0x7f060004;
+        public static final int detail_label_phome=0x7f06000c;
+        public static final int detail_name=0x7f060005;
+        public static final int detail_phone=0x7f06000d;
+        public static final int img_rest=0x7f06000e;
         public static final int lvEmpleados=0x7f060000;
-        public static final int tv_email=0x7f060003;
-        public static final int tv_name=0x7f060002;
-        public static final int tv_phone=0x7f060004;
+        public static final int tv_email=0x7f060010;
+        public static final int tv_name=0x7f06000f;
+        public static final int tv_phone=0x7f060011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int employee_listitem=0x7f030001;
+        public static final int employee_detail=0x7f030001;
+        public static final int employee_listitem=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int email=0x7f040004;
+        public static final int charge=0x7f040005;
+        public static final int charge_label=0x7f04000b;
+        public static final int department=0x7f040006;
+        public static final int department_label=0x7f04000c;
+        public static final int email=0x7f040007;
+        public static final int email_label=0x7f04000e;
         public static final int employee_icon_alt=0x7f040002;
         public static final int hello_world=0x7f040001;
-        public static final int name=0x7f040003;
-        public static final int phone=0x7f040005;
+        public static final int id=0x7f040003;
+        /**  LABELS 
+         */
+        public static final int id_label=0x7f040009;
+        public static final int name=0x7f040004;
+        public static final int name_label=0x7f04000a;
+        public static final int phone=0x7f040008;
+        public static final int phone_label=0x7f04000d;
     }
     public static final class style {
         /** 

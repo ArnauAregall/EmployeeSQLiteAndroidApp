@@ -4,8 +4,18 @@
     <string name="app_name">MP08_UF2_NF1.2_04</string>
     <string name="hello_world">Hello world!</string>
     <string name="employee_icon_alt">Employee Icon</string>
-    <string name="name">Name and Charge</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="charge">Charge</string>
+    <string name="department">Department</string>
     <string name="email">E-mail</string>
     <string name="phone">Phone Number</string>
+    <!-- LABELS -->
+    <string name="id_label">ID :</string>
+    <string name="name_label">Name :</string>
+    <string name="charge_label">Charge :</string>
+    <string name="department_label">Department :</string>
+    <string name="phone_label">Phone :</string>
+    <string name="email_label">E-mail :</string>
 
 </resources>

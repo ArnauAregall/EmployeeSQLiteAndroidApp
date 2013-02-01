@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp" 
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp" >
+    
+    <!--  GENERAL LAYOUT -->
+    <LinearLayout 
+   		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical" 
+    	android:paddingTop="20dp"
+    	android:paddingBottom="20dp" 
+    	android:paddingLeft="15dp"
+    	android:paddingRight="15dp" >
+    	
+        <!-- EMPLOYEE ICON -->
+       	<ImageView
+        	android:id="@+id/detail_img_rest"
+        	android:layout_width="100dp"
+        	android:layout_height="100dp"
+        	android:padding="10dp"
+        	android:src="@drawable/employee_icon"
+        	android:contentDescription="@string/employee_icon_alt"
+        	android:layout_gravity="center_horizontal"
+        	android:background="@drawable/imageborder"  />
+       
+       <!-- DETAILS LAYOUT -->	
+       <LinearLayout
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+        	android:layout_gravity="center_horizontal"
+        	android:paddingTop="20dp"
+        	android:paddingBottom="20dp"  >
+        	
+			<!-- ID LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal"
+       			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >
+       		
+                <!-- ID  LABEL -->
+
+	          	<TextView
+	          	    android:id="@+id/detail_label_id"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/id_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		<!-- ID  VALUE -->
+	          	<TextView
+		            android:id="@+id/detail_id"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/id" />
+           
+           </LinearLayout>
+           <!-- ID LAYOUT END -->
+           
+			<!-- NAME LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal"
+       			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >
+       		
+                <!-- NAME  LABEL -->
+
+	          	<TextView
+	          	    android:id="@+id/detail_label_name"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/name_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		<!-- NAME  VALUE -->
+	          	<TextView
+		            android:id="@+id/detail_name"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/name" />
+           
+           </LinearLayout>
+           <!-- NAME LAYOUT END -->           
+           
+           
+			<!-- CHARGE LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal" 
+       			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >       		
+                <!-- CHARGE LABEL -->
+
+	          	<TextView
+	          	    android:id="@+id/detail_label_charge"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/charge_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		<!-- CHARGE  VALUE -->
+	          	<TextView
+		            android:id="@+id/detail_charge"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/charge" />
+           
+           </LinearLayout>
+           <!-- CHARGE LAYOUT END -->
+           
+           
+			<!-- DEPARTMENT LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal" 
+       			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >
+       		
+                <!-- DEPARTMENT LABEL -->
+
+	          	<TextView
+	          	    android:id="@+id/detail_label_department"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/department_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		<!-- DEPARTMENT  VALUE -->
+	          	<TextView
+		            android:id="@+id/detail_department"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/department" />
+           
+           </LinearLayout>
+           <!-- DEPARTMENT LAYOUT END -->              
+           
+			<!-- EMAIL LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal" 
+      			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >
+       		
+                <!-- EMAIL LABEL -->
+
+	          	<TextView
+	          	    android:id="@+id/detail_label_email"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/email_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		<!-- EMAIL  VALUE -->
+	          	<TextView
+		            android:id="@+id/detail_email"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/email" />
+           
+           </LinearLayout>
+           <!-- EMAIL LAYOUT END -->  
+           
+			<!-- PHONE LAYOUT -->
+            <LinearLayout
+           		android:layout_width="wrap_content"
+       			android:layout_height="wrap_content"
+       			android:orientation="horizontal" 
+       			android:gravity="center_horizontal" 
+       			android:paddingTop="5dp"
+       			android:paddingBottom="5dp" >
+	          	       		
+                <!-- PHONE LABEL -->
+	          	<TextView
+	          	    android:id="@+id/detail_label_phome"
+	          	    android:layout_width="85dp"
+	          	    android:layout_height="wrap_content"
+	          	    android:paddingTop="2dp"
+	          	    android:singleLine="true"
+	          	    android:text="@string/phone_label"
+	          	    android:textSize="14sp"
+	          	    android:textStyle="bold" />
+	          	
+          		 <!-- PHONE LABEL -->
+	          	<TextView
+		            android:id="@+id/detail_phone"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="35dp"
+		            android:paddingTop="2dp"
+		            android:textSize="14sp"
+		            android:singleLine="true"
+		            android:text="@string/phone" />
+           
+           </LinearLayout>
+           <!-- PHONE LAYOUT END -->
+	        
+        </LinearLayout>
+       	<!-- DETAILS LAYOUT END -->
+       		
+    </LinearLayout>
+	<!--  GENERAL LAYOUT END -->
+</ScrollView>
