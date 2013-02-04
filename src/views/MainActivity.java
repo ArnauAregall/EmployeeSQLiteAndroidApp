@@ -24,6 +24,7 @@ public class MainActivity extends ListActivity {
 
 	EmployeeAdapter adapter = null;
 	List<Employee> employees = null;
+	EmployeeDataSource employeeDS = null;
 	/**
 	 * onCreate method
 	 */
@@ -31,27 +32,17 @@ public class MainActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		EmployeeDataSource employeeDS = new EmployeeDataSource(this);
-		employeeDS.open(false); // open DB connection
+		employeeDS = new EmployeeDataSource(this);
+		employeeDS.open(true); // open DB connection
 		employees = employeeDS.getEmployees(); // retrieve data from DB
-		adapter = new EmployeeAdapter(this, employees);
+		adapter = new EmployeeAdapter(this, employees, employeeDS);
+		adapter.notifyDataSetChanged();
 		this.setListAdapter(adapter);
-		employeeDS.close(); // close DB connection
 	}
-	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-		Employee selected = employees.get(position);
-		Intent intent = new Intent(this, EmployeeDetails.class);
-		intent.putExtra("employee_id", Integer.toString(selected.getId()));
-		intent.putExtra("employee_name", selected.getName());
-		intent.putExtra("employee_charge", selected.getCharge());
-		intent.putExtra("employee_department", selected.getDepartament());
-		intent.putExtra("employee_email", selected.getEmail());
-		intent.putExtra("employee_phone", selected.getPhone());
 		
-		startActivity(intent);
+	protected void onDestroy() {
+		employeeDS.close(); // close DB connection
+		super.onDestroy();
 	}
 	
 }

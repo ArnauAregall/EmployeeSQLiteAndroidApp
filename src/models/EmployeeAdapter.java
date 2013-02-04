@@ -2,14 +2,23 @@ package models;
 
 import java.util.List;
 
+import views.EmployeeDetails;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lasallegraciadam2.aaregall.R;
+
+import controllers.EmployeeDataSource;
 
 /**
  * EmployeeAdapter class, custom adapter for the Employee List View 
@@ -21,13 +30,15 @@ public class EmployeeAdapter extends BaseAdapter {
 
 	Context _context;
 	List<Employee> _employees;
+	EmployeeDataSource _employeeDS;
 	
 	/**
 	 * Constructor
 	 * @param context, the activity where we will inflate our custom views into our custom adapter.
 	 * @param employees, List of Employees object retrieved from SQLite database.
 	 */
-	public EmployeeAdapter(Context context, List<Employee> employees) {
+	public EmployeeAdapter(Context context, List<Employee> employees, EmployeeDataSource employeeDS) {
+		this._employeeDS = employeeDS;
 		this._context = context;
 		this._employees = employees;
 	}
@@ -70,7 +81,7 @@ public class EmployeeAdapter extends BaseAdapter {
 	 *  @param View, convertView
 	 *  @param ViewGroup, arg2 (in case that our View is included into another View)
 	 */
-	public View getView(int location, View convertView, ViewGroup arg2) {
+	public View getView(final int location, View convertView, ViewGroup arg2) {
 		View customView = null;
 		if(convertView == null) {
 			// must generate a new view from the item XML layout
@@ -81,6 +92,7 @@ public class EmployeeAdapter extends BaseAdapter {
 			customView = convertView;
 		}
 		
+		// Set TextView's values
 		TextView tvName = (TextView) customView.findViewById(R.id.tv_name);
 		TextView tvEmail = (TextView) customView.findViewById(R.id.tv_email);
 		TextView tvPhone = (TextView) customView.findViewById(R.id.tv_phone);
@@ -89,7 +101,53 @@ public class EmployeeAdapter extends BaseAdapter {
 		tvEmail.setText(_employees.get(location).getEmail());
 		tvPhone.setText(_employees.get(location).getPhone());
 		
+		// add onClickListener to view,
+		// will start a new activity for showing all Employee details
+		customView.setOnClickListener(new OnClickListener() {	
+			public void onClick(View v) {
+				
+				Employee selected = _employees.get(location);
+				Intent intent = new Intent(_context, EmployeeDetails.class);
+				intent.putExtra("employee_id", Integer.toString(selected.getId()));
+				intent.putExtra("employee_name", selected.getName());
+				intent.putExtra("employee_charge", selected.getCharge());
+				intent.putExtra("employee_department", selected.getDepartament());
+				intent.putExtra("employee_email", selected.getEmail());
+				intent.putExtra("employee_phone", selected.getPhone());
+				_context.startActivity(intent);
+			}
+		});
+		
+		// add onLongClickListener to view,
+		// shows a ConfirmDialog to remove an employee from DB
+		customView.setOnLongClickListener(new OnLongClickListener() {
+			public boolean onLongClick(View v) {
+			    new AlertDialog.Builder(_context)
+		        	.setIcon(android.R.drawable.ic_input_delete)
+		        	.setTitle("Remove Employee")
+		        	.setMessage("¿Are you sure you want to remove "+_employees.get(location).getName()+"? ")
+		        	.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+		        		public void onClick(DialogInterface dialog, int which) {
+		        			int deleted = _employeeDS.deleteEmployee(_employees.get(location));
+		        			if(deleted != 0) {
+		        				Toast.makeText(_context, _employees.get(location).getName() + " has been removed successfully.", Toast.LENGTH_LONG).show();
+		        				_employees.remove(location);
+		        				refresh();
+		        			}
+		        		}
+		        	}).setNegativeButton("Cancelar", null).show();
+			    return false;
+			}
+			});
+		
 		return customView;
 	}
+	
+	/**
+	 * used to refresh/notify list adapter changes
+	 */
+	public void refresh(){
+		this.notifyDataSetChanged();
+	};
 
 }

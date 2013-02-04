@@ -78,7 +78,12 @@ public class EmployeeDataSource {
 		cur.close(); // !important
 		return exists;
 	}
-		
+	
+	public int deleteEmployee(Employee employee) {
+		int deleted = db.delete(dbHelper.TABLENAME, "id = " + employee.getId(), null);
+		return deleted;
+	}
+	
 	/**
 	 * Retrieve a list of employees names
 	 * @return List<String> of name.employee values
