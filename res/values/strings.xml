@@ -10,12 +10,18 @@
     <string name="department">Department</string>
     <string name="email">E-mail</string>
     <string name="phone">Phone Number</string>
-    <!-- LABELS -->
+    <!-- LABELS DETAIL VIEW -->
     <string name="id_label">ID :</string>
     <string name="name_label">Name :</string>
     <string name="charge_label">Charge :</string>
     <string name="department_label">Department :</string>
     <string name="phone_label">Phone :</string>
     <string name="email_label">E-mail :</string>
-
+    <string name="menu_new_employee">Add new Employee</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_employee_create">EmployeeCreate</string>
+    
+    <!--  ADD EMPLOYEE VIEW -->
+	<string name="add_employee">Add Employee</string>
+	<string name="cancel">Cancel</string>
 </resources>

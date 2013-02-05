@@ -4,12 +4,15 @@ import java.util.List;
 
 import models.Employee;
 import models.EmployeeAdapter;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.lasallegraciadam2.aaregall.R;
 
 import controllers.EmployeeDataSource;
-
-
-import android.os.Bundle;
-import android.app.ListActivity;
 
 /**
  * MainActivity, first activity that will be shown. 
@@ -40,9 +43,32 @@ public class MainActivity extends ListActivity {
 		
 		this.setListAdapter(adapter);
 	}
-		
+	
+	/**
+	 * Shows menu view specified in it's XML file view
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_main_menu, menu);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+		if(item.getItemId() == R.id.menu_new_employee) {
+			Intent intent = new Intent(this, EmployeeCreate.class);
+			this.startActivity(intent);
+		}
+		return false;
+	}
+	
+	/**
+	 * need to override onDestroy in order to close DB connection
+	 */
+	@Override
 	protected void onDestroy() {
-		employeeDS.close(); // close DB connection
+		employeeDS.close(); // close DB connection, before calling super.onDestroy()
 		super.onDestroy();
 	}
 	
