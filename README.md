@@ -15,7 +15,8 @@ for the Technic Engineering in Cross-Platform Software Development.
 	<li><b>v1.0</b> - Added Javadoc, translated to English most of the application source.</li>
 	<li><b>v1.1</b> - Shows Employees information from an SQLite database in a custom list.</li>
 	<li><b>v1.2</b> - Available to see Employee details in a new view by clicking on each list item. Available to remove them with a long click on each.</li>
+	<li><b>v1.3</b> - Added Employee add functionality to the application.</li>
 </ul>
 Created by Arnau Aregall (<a href="http://twitter.com/ArnauAregall">@ArnauAregall</a>) 
 
-Barcelona, 01.31.2013 
+Barcelona, 02.06.2013
