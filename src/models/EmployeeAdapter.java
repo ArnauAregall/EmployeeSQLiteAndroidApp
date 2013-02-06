@@ -21,7 +21,8 @@ import com.lasallegraciadam2.aaregall.R;
 import controllers.EmployeeDataSource;
 
 /**
- * EmployeeAdapter class, custom adapter for the Employee List View 
+ * EmployeeAdapter class, custom adapter for the Employee List View
+ * that inflates custom views into the ListActivity
  * @author ArnauAregall
  *
  */
