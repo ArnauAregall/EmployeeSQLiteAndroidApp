@@ -68,6 +68,8 @@ public final class R {
         /**   ADD EMPLOYEE VIEW 
          */
         public static final int add_employee=0x7f050016;
+        public static final int added_employee=0x7f050018;
+        public static final int added_employee_msg=0x7f050019;
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050017;
         public static final int charge=0x7f050005;
@@ -86,6 +88,7 @@ public final class R {
         public static final int menu_settings=0x7f050010;
         public static final int name=0x7f050004;
         public static final int name_label=0x7f05000a;
+        public static final int ok=0x7f05001a;
         public static final int phone=0x7f050008;
         public static final int phone_label=0x7f05000d;
         public static final int remove=0x7f050014;

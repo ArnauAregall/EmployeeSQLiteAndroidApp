@@ -34,16 +34,21 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		employeeDS = new EmployeeDataSource(this);
-		employeeDS.open(true); // open DB connection
+		employeeDS.open(true); // open DB connection in writable mode, because of Delete option
 		
-		employees = employeeDS.getEmployees(); // retrieve data from DB
-		
-		adapter = new EmployeeAdapter(this, employees, employeeDS);
-		adapter.notifyDataSetChanged();
-		
-		this.setListAdapter(adapter);
 	}
 	
+	/**
+	 * Retrieve data on onResume Activity Cicle Life state in order to refresh data
+	 */
+	@Override
+	protected void onResume() {
+		super.onResume();
+		employees = employeeDS.getEmployees(); // retrieve data from DB
+		adapter = new EmployeeAdapter(this, employees, employeeDS);
+		adapter.notifyDataSetChanged();
+		this.setListAdapter(adapter);
+	}
 	/**
 	 * Shows menu view specified in it's XML file view
 	 */
@@ -55,7 +60,7 @@ public class MainActivity extends ListActivity {
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
+	    // Handle menu item selection
 		if(item.getItemId() == R.id.menu_new_employee) {
 			Intent intent = new Intent(this, EmployeeCreate.class);
 			this.startActivity(intent);

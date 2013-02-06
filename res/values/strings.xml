@@ -29,4 +29,7 @@
     <!--  ADD EMPLOYEE VIEW -->
 	<string name="add_employee">Add Employee</string>
 	<string name="cancel">Cancel</string>
+	<string name="added_employee">Added Employee</string>
+	<string name="added_employee_msg">was added successfully.</string>
+	<string name="ok">OK</string>
 </resources>

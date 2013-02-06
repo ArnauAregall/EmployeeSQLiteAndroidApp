@@ -135,19 +135,20 @@ public class EmployeeAdapter extends BaseAdapter {
 		customView.setOnLongClickListener(new OnLongClickListener() {
 			public boolean onLongClick(View v) {
 			    new AlertDialog.Builder(_context)
-		        	.setIcon(android.R.drawable.ic_input_delete)
+		        	.setIcon(android.R.drawable.ic_dialog_alert)
 		        	.setTitle(R.string.remove_employee)
 		        	.setMessage(_context.getResources().getString(R.string.remove_confirm_message) + " " + _employees.get(location).getName()+" ?")
 		        	.setPositiveButton(R.string.remove, new DialogInterface.OnClickListener() {
 		        		public void onClick(DialogInterface dialog, int which) {
 		        			int deleted = _employeeDS.deleteEmployee(_employees.get(location));
 		        			if(deleted != 0) {
-		        				Toast.makeText(_context, _employees.get(location).getName() + R.string.removed_successfully, Toast.LENGTH_LONG).show();
+		        				Toast.makeText(_context, _employees.get(location).getName() + _context.getResources().getString(R.string.removed_successfully), Toast.LENGTH_LONG).show();
 		        				_employees.remove(location);
 		        				refresh();
 		        			}
 		        		}
-		        	}).setNegativeButton(R.string.cancel, null).show();
+		        	}).setNegativeButton(R.string.cancel, null)
+		        	.show();
 			    return false;
 			}
 			});
