@@ -67,8 +67,12 @@ public class EmployeeAdapter extends BaseAdapter {
 	}
 
 	/**
+	 * 
+	 * HEY YOU! : If you are not familiarized with Inflating custom Views into List Activities,
+	 * you should sit tight and read the following: 
+	 * 
 	 * Method called every time that is needed to show an item of the List _employees,
-	 * even if it has been shown before, because Android does not "save" list items that disappear from sreen.
+	 * even if it has been shown before, because Android does not "save" list items that disappear from screen.
 	 * IE: scrolling through a list, screen rotation.
 	 * 
 	 * Depending on the list size and furthermore on the complexity of the layout,
@@ -105,7 +109,14 @@ public class EmployeeAdapter extends BaseAdapter {
 		// will start a new activity for showing all Employee details
 		customView.setOnClickListener(new OnClickListener() {	
 			public void onClick(View v) {
-				
+				/**
+				 * Could pass the whole Employee object 
+				 * to the new Activity if it extended from Parcelable.
+				 * We will pass it's properties because it is a very simple object.
+				 * 
+				 * For more information about Parcelable, check official Android Developers doc:
+				 * http://developer.android.com/reference/android/os/Parcelable.html
+				 */
 				Employee selected = _employees.get(location);
 				Intent intent = new Intent(_context, EmployeeDetails.class);
 				intent.putExtra("employee_id", Integer.toString(selected.getId()));
@@ -124,22 +135,21 @@ public class EmployeeAdapter extends BaseAdapter {
 			public boolean onLongClick(View v) {
 			    new AlertDialog.Builder(_context)
 		        	.setIcon(android.R.drawable.ic_input_delete)
-		        	.setTitle("Remove Employee")
-		        	.setMessage("¿Are you sure you want to remove "+_employees.get(location).getName()+"? ")
-		        	.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+		        	.setTitle(R.string.remove_employee)
+		        	.setMessage(_context.getResources().getString(R.string.remove_confirm_message) + " " + _employees.get(location).getName()+" ?")
+		        	.setPositiveButton(R.string.remove, new DialogInterface.OnClickListener() {
 		        		public void onClick(DialogInterface dialog, int which) {
 		        			int deleted = _employeeDS.deleteEmployee(_employees.get(location));
 		        			if(deleted != 0) {
-		        				Toast.makeText(_context, _employees.get(location).getName() + " has been removed successfully.", Toast.LENGTH_LONG).show();
+		        				Toast.makeText(_context, _employees.get(location).getName() + R.string.removed_successfully, Toast.LENGTH_LONG).show();
 		        				_employees.remove(location);
 		        				refresh();
 		        			}
 		        		}
-		        	}).setNegativeButton("Cancelar", null).show();
+		        	}).setNegativeButton(R.string.cancel, null).show();
 			    return false;
 			}
 			});
-		
 		return customView;
 	}
 	

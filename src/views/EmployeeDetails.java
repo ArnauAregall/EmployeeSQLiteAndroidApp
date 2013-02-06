@@ -8,6 +8,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * EmployeeDetails class, Activity that displays the whole information that an Employee object contains.
+ * @author ArnauAregall
+ *
+ */
 public class EmployeeDetails extends Activity {
 	
 	Employee employee;
@@ -23,6 +28,10 @@ public class EmployeeDetails extends Activity {
 		fillEmployeeDetailView(employee, bundle);
 	}
 	
+	/**
+	 * @param emp, Employee object
+	 * @param bundle, Bundle to get Employee values from the selected Employee
+	 */
 	private void fillEmployeeDetailView(Employee emp, Bundle bundle) {
 		
 		emp.setId(Integer.parseInt(bundle.getString("employee_id")));

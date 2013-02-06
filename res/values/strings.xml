@@ -20,6 +20,11 @@
     <string name="menu_new_employee">Add new Employee</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_employee_create">EmployeeCreate</string>
+    <!-- REMOVE EMPLOYEE  -->
+    <string name="removed_successfully"> has been removed successfully.</string>
+    <string name="remove_employee">Remove Employee</string>
+    <string name="remove">Remove</string>
+    <string name="remove_confirm_message">Are you sure you want to remove </string>
     
     <!--  ADD EMPLOYEE VIEW -->
 	<string name="add_employee">Add Employee</string>
