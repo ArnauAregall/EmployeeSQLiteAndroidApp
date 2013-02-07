@@ -120,12 +120,7 @@ public class EmployeeAdapter extends BaseAdapter {
 				 */
 				Employee selected = _employees.get(location);
 				Intent intent = new Intent(_context, EmployeeDetails.class);
-				intent.putExtra("employee_id", Integer.toString(selected.getId()));
-				intent.putExtra("employee_name", selected.getName());
-				intent.putExtra("employee_charge", selected.getCharge());
-				intent.putExtra("employee_department", selected.getDepartament());
-				intent.putExtra("employee_email", selected.getEmail());
-				intent.putExtra("employee_phone", selected.getPhone());
+				intent.putExtra("employee_id", selected.getId());
 				_context.startActivity(intent);
 			}
 		});

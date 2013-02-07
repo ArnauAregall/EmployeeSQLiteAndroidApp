@@ -4,6 +4,8 @@ import models.Employee;
 
 import com.lasallegraciadam2.aaregall.R;
 
+import controllers.EmployeeDataSource;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,16 +21,17 @@ import android.widget.TextView;
 public class EmployeeDetails extends Activity {
 	
 	Employee employee;
+	EmployeeDataSource employeeDS = null;
+	int empId;
 	private TextView tvId, tvName, tvCharge, tvDepartment, tvEmail, tvPhone;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.employee_detail);
 		
-		employee = new Employee();
-		
 		Bundle bundle = getIntent().getExtras();	
-		
+		empId = bundle.getInt("employee_id");
+
 		tvId = (TextView) findViewById(R.id.detail_id);
 		tvName = (TextView) findViewById(R.id.detail_name);
 		tvCharge = (TextView) findViewById(R.id.detail_charge);
@@ -36,7 +39,16 @@ public class EmployeeDetails extends Activity {
 		tvEmail = (TextView) findViewById(R.id.detail_email);
 		tvPhone = (TextView) findViewById(R.id.detail_phone);
 		
-		fillEmployeeDetailView(employee, bundle);
+		employeeDS = new EmployeeDataSource(this);
+		employeeDS.open(false);
+		
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		employee = employeeDS.getEmployee(empId);
+		fillEmployeeDetailView(employee);
 	}
 	
 	/**
@@ -63,16 +75,7 @@ public class EmployeeDetails extends Activity {
 	 * @param emp, Employee object
 	 * @param bundle, Bundle to get Employee values from the selected Employee
 	 */
-	private void fillEmployeeDetailView(Employee emp, Bundle bundle) {
-		
-		emp.setId(Integer.parseInt(bundle.getString("employee_id")));
-		emp.setName(bundle.getString("employee_name"));
-		emp.setCharge(bundle.getString("employee_charge"));
-		emp.setDepartament(bundle.getString("employee_department"));
-		emp.setEmail(bundle.getString("employee_email"));
-		emp.setPhone(bundle.getString("employee_phone"));
-		
-
+	private void fillEmployeeDetailView(Employee emp) {
 		
 		tvId.setText(Integer.toString(emp.getId()));
 		tvName.setText(emp.getName());
@@ -80,6 +83,14 @@ public class EmployeeDetails extends Activity {
 		tvDepartment.setText(emp.getDepartament());
 		tvEmail.setText(emp.getEmail());
 		tvPhone.setText(emp.getPhone());
-		
+	}
+	
+	/**
+	 * need to override onDestroy in order to close DB connection
+	 */
+	@Override
+	protected void onDestroy() {
+		employeeDS.close(); // close DB connection, before calling super.onDestroy()
+		super.onDestroy();
 	}
 }
