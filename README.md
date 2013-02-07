@@ -16,6 +16,7 @@ for the Technic Engineering in Cross-Platform Software Development.
 	<li><b>v1.1</b> - Shows Employees information from an SQLite database in a custom list.</li>
 	<li><b>v1.2</b> - Available to see Employee details in a new view by clicking on each list item. Available to remove them with a long click on each.</li>
 	<li><b>v1.3</b> - Available to add Employee registers into a SQLite database.</li>
+	<li><b>v1.4</b> - Available to modify Employee registers from the SQLite database. </li>
 </ul>
 
 Created by Arnau Aregall (<a href="http://twitter.com/ArnauAregall">@ArnauAregall</a>) 
