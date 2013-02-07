@@ -1,0 +1,126 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   		android:layout_width="fill_parent"
+    	android:layout_height="fill_parent">
+   
+    <ScrollView 
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:fillViewport="true"
+    	android:padding="10dp"
+    	android:layout_above="@+id/layout_btnSave" >
+    	          
+			<LinearLayout 
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    tools:context=".EmployeeUpdate" 
+			    android:orientation="vertical"
+			    android:focusable="true" android:focusableInTouchMode="true">
+		    
+		
+		        <TextView
+		     		android:id="@+id/update_title"
+		     		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/update_employee"
+			        android:layout_gravity="center_horizontal"
+			        android:padding="10sp"
+			        android:textAppearance="?android:attr/textAppearanceLarge" />
+		          
+			    <TextView
+			        android:id="@+id/update_lblName"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_margin="10sp"
+			        android:text="@string/name_label" />
+		
+		    <EditText
+		        android:id="@+id/update_etName"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:inputType="text"
+		        android:ems="10" />
+		
+		    <TextView
+		        android:id="@+id/update_lblCharge"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:text="@string/charge_label" />
+		
+		    <EditText
+		        android:id="@+id/update_etCharge"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:inputType="text"
+		        android:ems="10" />
+		
+		    <TextView
+		        android:id="@+id/update_lblDepartment"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:text="@string/department_label" />
+		
+		    <EditText
+		        android:id="@+id/update_etDepartment"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:inputType="text"
+		        android:layout_margin="10sp"
+		        android:ems="10" />
+		
+		    <TextView
+		        android:id="@+id/update_lblPhone"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:text="@string/phone_label" />
+		
+		    <EditText
+		        android:id="@+id/update_etPhone"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:ems="10"
+		        android:layout_margin="10sp"
+		        android:inputType="phone" />
+		
+		    <TextView
+		        android:id="@+id/update_lblEmail"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:text="@string/email_label" />
+		
+		    <EditText
+		        android:id="@+id/update_etEmail"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="10sp"
+		        android:ems="10"
+		        android:inputType="textWebEmailAddress" />
+		
+		</LinearLayout>        
+</ScrollView>
+
+    <LinearLayout 
+        android:id="@+id/layout_btnSave"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_margin="10sp" 
+        android:gravity="center_horizontal" >
+			
+		<Button 
+		    android:id="@+id/update_btnSave" 
+		    android:layout_width="match_parent" 
+		    android:layout_height="wrap_content" 
+		    android:drawableLeft="@android:drawable/ic_menu_save" 
+		    android:text="@string/save" 
+		    android:textSize="12sp" />
+	</LinearLayout>
+</RelativeLayout>
+

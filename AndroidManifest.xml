@@ -33,13 +33,24 @@
         </activity>
         <activity
             android:name="views.EmployeeCreate"
-            android:label="@string/title_activity_employee_create" >
+            android:label="@string/title_activity_employee_create"
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>            
+            </intent-filter>
         </activity>
+        <activity
+            android:name="views.EmployeeUpdate"
+            android:label="@string/title_activity_employee_update"
+            android:windowSoftInputMode="adjustPan"  >
+        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>        
     </application>
 
 </manifest>
