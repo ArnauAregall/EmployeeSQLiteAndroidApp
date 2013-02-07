@@ -1,6 +1,7 @@
 package views;
 
 import models.Employee;
+import models.EmployeeValidator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.lasallegraciadam2.aaregall.R;
 
@@ -23,11 +23,14 @@ public class EmployeeCreate extends Activity implements OnClickListener {
 	
 	EditText etName, etCharge, etDepartment, etPhone, etEmail;
 	Button btnAdd;
+	EmployeeValidator validator = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employee_create);
+		
+		validator = new EmployeeValidator(this);
 		
 		etName = (EditText) findViewById(R.id.add_etName);
 		etName.setTag(getResources().getString(R.string.name));
@@ -50,8 +53,8 @@ public class EmployeeCreate extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		if(v.equals(btnAdd)) {
 			// eval EditText values in this order
-			if(isValidText(etName) && isValidText(etCharge) && isValidText(etDepartment) 
-					&& isValidText(etPhone) && isValidText(etEmail)) {
+			if(validator.isValidText(etName) && validator.isValidText(etCharge) && validator.isValidText(etDepartment) 
+					&& validator.isValidText(etPhone) && validator.isValidText(etEmail)) {
 				Employee employee = new Employee();
 				employee.setName(etName.getText().toString());
 				employee.setCharge(etCharge.getText().toString());
@@ -63,6 +66,11 @@ public class EmployeeCreate extends Activity implements OnClickListener {
 		}
 	}
 
+	/**
+	 * Method that instantiates a new EmployeeDataSource object 
+	 * in order to insert the new Employee.
+	 * @param employee
+	 */
 	private void addEmployee(Employee employee) {
 		EmployeeDataSource employeeDS = new EmployeeDataSource(this);
 		employeeDS.open(true); // open DB connection in writable mode to add Employee register
@@ -75,44 +83,5 @@ public class EmployeeCreate extends Activity implements OnClickListener {
 				.show();
 		}
 		employeeDS.close(); // open DB connection
-	}
-	
-	
-	/**
-	 * Notifies user if the input value is valid or not 
-	 * by changing the background color of the EditText's items.
-	 * 
-	 * @param editText, EditText that will have it's background color changed whether is valid or not.
-	 * @param valid, boolean that determines if it's a valid input value or not.
-	 */
-	private void noticeInputValidation(EditText editText,  boolean valid) {
-		if(valid) {
-			editText.setBackgroundColor(getResources().getColor(R.color.soft_green));
-		} else {
-			editText.setBackgroundColor(getResources().getColor(R.color.soft_red));
-			// optional
-			Toast.makeText(this, "Input value for field " + editText.getTag() + " is not valid.", Toast.LENGTH_SHORT).show();
-		}
-	} 
-	
-	/**
-	 * Checks if the specified EditText value is valid depending on our criteria 
-	 * and notifies user by calling noticeInputValidation method
-	 * @param editText
-	 * @return boolean, true if is valid, false if not (D'OH!)
-	 */
-	private boolean isValidText(EditText editText) {		
-		/**
-		 * This validation it's quite useless,
-		 * feel free to add regular expressions with the following:
-		 * editText.getText().toString().matches(myRegex);
-		 */
-		if(editText.getText().toString().equals("")){
-			noticeInputValidation(editText, false);
-			return false;
-		} else{
-			noticeInputValidation(editText, true);
-		    return true;
-		}
 	}
 }

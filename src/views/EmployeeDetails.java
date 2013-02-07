@@ -5,7 +5,10 @@ import models.Employee;
 import com.lasallegraciadam2.aaregall.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
@@ -16,7 +19,7 @@ import android.widget.TextView;
 public class EmployeeDetails extends Activity {
 	
 	Employee employee;
-	
+	private TextView tvId, tvName, tvCharge, tvDepartment, tvEmail, tvPhone;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,8 +27,36 @@ public class EmployeeDetails extends Activity {
 		
 		employee = new Employee();
 		
-		Bundle bundle = getIntent().getExtras();		
+		Bundle bundle = getIntent().getExtras();	
+		
+		tvId = (TextView) findViewById(R.id.detail_id);
+		tvName = (TextView) findViewById(R.id.detail_name);
+		tvCharge = (TextView) findViewById(R.id.detail_charge);
+		tvDepartment = (TextView) findViewById(R.id.detail_department);
+		tvEmail = (TextView) findViewById(R.id.detail_email);
+		tvPhone = (TextView) findViewById(R.id.detail_phone);
+		
 		fillEmployeeDetailView(employee, bundle);
+	}
+	
+	/**
+	 * Shows menu view specified in it's XML file view
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_employee_details, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle menu item selection
+		if(item.getItemId() == R.id.menu_update_employee) {
+			Intent intent = new Intent(this, EmployeeUpdate.class);
+			intent.putExtra("employee_id", Integer.parseInt(tvId.getText().toString()));			
+			this.startActivity(intent);
+		}
+		return false;
 	}
 	
 	/**
@@ -41,12 +72,7 @@ public class EmployeeDetails extends Activity {
 		emp.setEmail(bundle.getString("employee_email"));
 		emp.setPhone(bundle.getString("employee_phone"));
 		
-		TextView tvId = (TextView) findViewById(R.id.detail_id);
-		TextView tvName = (TextView) findViewById(R.id.detail_name);
-		TextView tvCharge = (TextView) findViewById(R.id.detail_charge);
-		TextView tvDepartment = (TextView) findViewById(R.id.detail_department);
-		TextView tvEmail = (TextView) findViewById(R.id.detail_email);
-		TextView tvPhone = (TextView) findViewById(R.id.detail_phone);
+
 		
 		tvId.setText(Integer.toString(emp.getId()));
 		tvName.setText(emp.getName());

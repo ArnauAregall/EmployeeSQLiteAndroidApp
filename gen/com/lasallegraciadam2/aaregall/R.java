@@ -31,41 +31,58 @@ public final class R {
         public static final int add_lblEmail=0x7f08000a;
         public static final int add_lblName=0x7f080002;
         public static final int add_lblPhone=0x7f080008;
-        public static final int detail_charge=0x7f080014;
-        public static final int detail_department=0x7f080016;
-        public static final int detail_email=0x7f080018;
-        public static final int detail_id=0x7f080010;
-        public static final int detail_img_rest=0x7f08000e;
-        public static final int detail_label_charge=0x7f080013;
-        public static final int detail_label_department=0x7f080015;
-        public static final int detail_label_email=0x7f080017;
-        public static final int detail_label_id=0x7f08000f;
-        public static final int detail_label_name=0x7f080011;
-        public static final int detail_label_phome=0x7f080019;
-        public static final int detail_name=0x7f080012;
-        public static final int detail_phone=0x7f08001a;
-        public static final int img_rest=0x7f08001b;
+        public static final int detail_charge=0x7f080021;
+        public static final int detail_department=0x7f080023;
+        public static final int detail_email=0x7f080025;
+        public static final int detail_id=0x7f08001d;
+        public static final int detail_img_rest=0x7f08001b;
+        public static final int detail_label_charge=0x7f080020;
+        public static final int detail_label_department=0x7f080022;
+        public static final int detail_label_email=0x7f080024;
+        public static final int detail_label_id=0x7f08001c;
+        public static final int detail_label_name=0x7f08001e;
+        public static final int detail_label_phome=0x7f080026;
+        public static final int detail_name=0x7f08001f;
+        public static final int detail_phone=0x7f080027;
+        public static final int img_rest=0x7f080028;
         public static final int layout_btnAdd=0x7f080000;
-        public static final int lvEmpleados=0x7f08000d;
-        public static final int menu_new_employee=0x7f080020;
-        public static final int menu_settings=0x7f08001f;
+        public static final int layout_btnSave=0x7f08000d;
+        public static final int lvEmpleados=0x7f08001a;
+        public static final int menu_new_employee=0x7f08002e;
+        public static final int menu_settings=0x7f08002c;
+        public static final int menu_update_employee=0x7f08002d;
         public static final int textView6=0x7f080001;
-        public static final int tv_email=0x7f08001d;
-        public static final int tv_name=0x7f08001c;
-        public static final int tv_phone=0x7f08001e;
+        public static final int tv_email=0x7f08002a;
+        public static final int tv_name=0x7f080029;
+        public static final int tv_phone=0x7f08002b;
+        public static final int update_btnSave=0x7f080019;
+        public static final int update_etCharge=0x7f080012;
+        public static final int update_etDepartment=0x7f080014;
+        public static final int update_etEmail=0x7f080018;
+        public static final int update_etName=0x7f080010;
+        public static final int update_etPhone=0x7f080016;
+        public static final int update_lblCharge=0x7f080011;
+        public static final int update_lblDepartment=0x7f080013;
+        public static final int update_lblEmail=0x7f080017;
+        public static final int update_lblName=0x7f08000f;
+        public static final int update_lblPhone=0x7f080015;
+        public static final int update_title=0x7f08000e;
     }
     public static final class layout {
         public static final int activity_employee_create=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int employee_detail=0x7f030002;
-        public static final int employee_listitem=0x7f030003;
+        public static final int activity_employee_update=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int employee_detail=0x7f030003;
+        public static final int employee_listitem=0x7f030004;
     }
     public static final class menu {
         public static final int activity_employee_create=0x7f070000;
-        public static final int activity_main_menu=0x7f070001;
+        public static final int activity_employee_details=0x7f070001;
+        public static final int activity_employee_update=0x7f070002;
+        public static final int activity_main_menu=0x7f070003;
     }
     public static final class string {
-        /**   ADD EMPLOYEE VIEW 
+        /**  ADD EMPLOYEE VIEW 
          */
         public static final int add_employee=0x7f050016;
         public static final int added_employee=0x7f050018;
@@ -94,10 +111,16 @@ public final class R {
         public static final int remove=0x7f050014;
         public static final int remove_confirm_message=0x7f050015;
         public static final int remove_employee=0x7f050013;
-        /**  REMOVE EMPLOYEE  
+        /**  REMOVE EMPLOYEE 
          */
         public static final int removed_successfully=0x7f050012;
+        public static final int save=0x7f05001c;
         public static final int title_activity_employee_create=0x7f050011;
+        public static final int title_activity_employee_update=0x7f05001d;
+        public static final int upated_successfully=0x7f05001f;
+        public static final int update=0x7f05001e;
+        public static final int update_employee=0x7f05001b;
+        public static final int updated_fail=0x7f050020;
     }
     public static final class style {
         /** 
