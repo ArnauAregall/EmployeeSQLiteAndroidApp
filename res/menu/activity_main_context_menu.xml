@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<item android:id="@+id/context_updateEmployee"
+    android:title="@string/update_employee">
+</item>    
+<item android:id="@+id/context_deleteEmployee"
+    android:title="@string/remove_employee">
+</item>
+</menu>

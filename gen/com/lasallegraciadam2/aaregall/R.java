@@ -31,6 +31,8 @@ public final class R {
         public static final int add_lblEmail=0x7f08000a;
         public static final int add_lblName=0x7f080002;
         public static final int add_lblPhone=0x7f080008;
+        public static final int context_deleteEmployee=0x7f08002f;
+        public static final int context_updateEmployee=0x7f08002e;
         public static final int detail_charge=0x7f080021;
         public static final int detail_department=0x7f080023;
         public static final int detail_email=0x7f080025;
@@ -48,7 +50,7 @@ public final class R {
         public static final int layout_btnAdd=0x7f080000;
         public static final int layout_btnSave=0x7f08000d;
         public static final int lvEmpleados=0x7f08001a;
-        public static final int menu_new_employee=0x7f08002e;
+        public static final int menu_new_employee=0x7f080030;
         public static final int menu_settings=0x7f08002c;
         public static final int menu_update_employee=0x7f08002d;
         public static final int textView6=0x7f080001;
@@ -78,7 +80,7 @@ public final class R {
     public static final class menu {
         public static final int activity_employee_create=0x7f070000;
         public static final int activity_employee_details=0x7f070001;
-        public static final int activity_employee_update=0x7f070002;
+        public static final int activity_main_context_menu=0x7f070002;
         public static final int activity_main_menu=0x7f070003;
     }
     public static final class string {

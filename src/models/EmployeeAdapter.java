@@ -3,9 +3,7 @@ package models;
 import java.util.List;
 
 import views.EmployeeDetails;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lasallegraciadam2.aaregall.R;
 
@@ -27,7 +24,7 @@ import controllers.EmployeeDataSource;
  *
  */
 
-public class EmployeeAdapter extends BaseAdapter {
+public class EmployeeAdapter extends BaseAdapter  {
 
 	Context _context;
 	List<Employee> _employees;
@@ -126,27 +123,12 @@ public class EmployeeAdapter extends BaseAdapter {
 		});
 		
 		// add onLongClickListener to view,
-		// shows a ConfirmDialog to remove an employee from DB
+		// shows a ContextMenu (defined in MainActivity) to remove an employee from DB
 		customView.setOnLongClickListener(new OnLongClickListener() {
-			public boolean onLongClick(View v) {
-			    new AlertDialog.Builder(_context)
-		        	.setIcon(android.R.drawable.ic_dialog_alert)
-		        	.setTitle(R.string.remove_employee)
-		        	.setMessage(_context.getResources().getString(R.string.remove_confirm_message) + " " + _employees.get(location).getName()+" ?")
-		        	.setPositiveButton(R.string.remove, new DialogInterface.OnClickListener() {
-		        		public void onClick(DialogInterface dialog, int which) {
-		        			int deleted = _employeeDS.deleteEmployee(_employees.get(location));
-		        			if(deleted != 0) {
-		        				Toast.makeText(_context, _employees.get(location).getName() + _context.getResources().getString(R.string.removed_successfully), Toast.LENGTH_LONG).show();
-		        				_employees.remove(location);
-		        				refresh();
-		        			}
-		        		}
-		        	}).setNegativeButton(R.string.cancel, null)
-		        	.show();
-			    return false;
-			}
-			});
+			public boolean onLongClick(View arg0) {
+				// 
+				return false;
+			}}); 
 		return customView;
 	}
 	
@@ -157,4 +139,5 @@ public class EmployeeAdapter extends BaseAdapter {
 		this.notifyDataSetChanged();
 	};
 
+	
 }
